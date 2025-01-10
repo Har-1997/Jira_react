@@ -37,8 +37,8 @@ export const SearchCont = styled.div`
 		position: absolute;
 		left: 30px;
 	}
-	img:hover{
-		background: rgba(250, 250, 250, 0.5);
-		border-radius: 50%;
-	}
+	// img:hover{
+	// 	background: rgba(250, 250, 250, 0.5);
+	// 	border-radius: 50%;
+	// }
 `

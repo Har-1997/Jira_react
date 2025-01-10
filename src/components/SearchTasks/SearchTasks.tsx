@@ -1,5 +1,5 @@
 import * as S from './SearchTasks.style';
-import React, { JSX, ChangeEvent } from 'react';
+import React, { JSX, ChangeEvent, useRef } from 'react';
 import SearchIcon from '../../pictures/search.png';
 import { useAppDispatch } from '../../hooks/useDispatch.ts';
 import { tasksAsync } from '../../redux/tasks/tasksSlice.ts';
@@ -8,11 +8,18 @@ interface SearchTasksProps {
   title: string;
 }
 
-export const SearchTasks = ({title}: SearchTasksProps): JSX.Element=> {
+export const SearchTasks = ({title}: SearchTasksProps): JSX.Element=> {	
 	const dispatch = useAppDispatch();
+	const searchTimerId = useRef<number | undefined>(undefined);
 
 	const searchTask = (e: ChangeEvent<HTMLInputElement>): void => {
-    dispatch(tasksAsync(e.target.value));
+		if (searchTimerId.current) {
+      clearTimeout(searchTimerId.current);
+    }
+
+    searchTimerId.current = window.setTimeout(() => {
+      dispatch(tasksAsync(e.target.value));
+    }, 300);
   };
 
 	return(
