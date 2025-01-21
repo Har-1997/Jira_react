@@ -46,6 +46,10 @@ export const PartTaskCont = styled.div`
     overflow-x: scroll;
     padding: 5px;
   }
+  @media only screen and (max-width: 1000px) {
+    width: 100%;
+    height: 100%
+	}
 `;
 
 export const PartTaskHeader = styled.div`
@@ -66,6 +70,9 @@ export const PartTaskList = styled.div`
   flex-direction: column;
   padding: 0px 15px;
   min-height: 150px;
+  @media only screen and (max-width: 1000px) {
+    height: 100%
+	}
 `;
 
 export const IconWithText = styled.div`
